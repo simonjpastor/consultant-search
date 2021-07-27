@@ -1,7 +1,8 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
-import streamlit as st
+from selenium import webdriver
+import chromedriver_binary
 
 APP_NAME = "Consulting Job Search"
 
@@ -53,14 +54,18 @@ def find_job_booz(search):
     #st.write()
 
 def find_job_bcg(search):
-    search = f'https://careers.bcg.com/search-results?m=3&keywords={search}'
-    response = requests.get(search, headers={'User-Agent': 'Chrome/86.0.4240.111'})
-    soup = BeautifulSoup(response.text, "html.parser")
+    driver = webdriver.Chrome()
+    driver.get(f"https://careers.bcg.com/search-results?m=3&keywords={search}")
+    driver.implicitly_wait(10)
+    driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button")[0].click()
+    html = driver.page_source
+    soup = BeautifulSoup(html, "html.parser")
 
-    jobs = soup.select("div")
-    #print("BCG")
-    #for i in jobs:
-        #print(i.find(class_="job-title").text)
+    jobs = soup.select("div .information")
+    job_link = {}
+    st.markdown("**BCG**")
+    for i in jobs:
+        st.markdown(f"[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})")
 
 
 if submit_button:
