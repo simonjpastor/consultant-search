@@ -70,6 +70,8 @@ def find_job_bcg(search):
     return driver
 
 def find_job_mckinsey(search, driver):
+    driver.delete_all_cookies()
+    driver.get("chrome://settings/clearBrowserData")
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
     driver.implicitly_wait(10)
     st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]"))
