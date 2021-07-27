@@ -81,6 +81,7 @@ def find_job_mckinsey(search):
     #st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
     #driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
+    st.write(html)
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
     jobs = soup.select(".job-listing-link")
