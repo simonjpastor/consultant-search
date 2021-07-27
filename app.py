@@ -67,13 +67,13 @@ def find_job_bcg(search):
     st.markdown("**BCG**")
     for i in jobs:
         st.markdown(f'[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})')
-    return driver
 
-def find_job_mckinsey(search, driver):
-    driver.delete_all_cookies()
-    driver.get("chrome://settings/clearBrowserData")
+def find_job_mckinsey(search):
+    driver = webdriver.Chrome()
+    #driver.delete_all_cookies()
+    #driver.get("chrome://settings/clearBrowserData")
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(8)
     st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]"))
     driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
@@ -89,8 +89,8 @@ def find_job_mckinsey(search, driver):
 
 if submit_button:
     search = search.replace(" ","%20")
-    driver = find_job_bcg(search)
+    find_job_bcg(search)
     st.write()
-    find_job_mckinsey(search, driver)
+    find_job_mckinsey(search)
     st.write()
     find_job_booz(search)
