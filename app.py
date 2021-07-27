@@ -12,6 +12,9 @@ search = st.text_input("Enter your search term", "Junior Analyst")
 submit_button = st.button('Submit', key="search_submit")
 
 
+jobs = []
+links = []
+
 def find_job_booz(search):
     search = f'https://careers.boozallen.com/jobs/search/{search}'
     response = requests.get(search, headers={'User-Agent': 'Chrome/86.0.4240.111'})
@@ -21,7 +24,9 @@ def find_job_booz(search):
     st.write()
     st.markdown("**Booz Allen**")
     for i in jobs:
-        st.write(i.find("a").text)
+        job = i.find("a").text
+        link = i.find("a")["href"]
+        st.markdown(f"[{job}]({link})")
     st.write()
 
 def find_job_bcg(search):
