@@ -72,6 +72,7 @@ def find_job_bcg(search):
 def find_job_mckinsey(search, driver):
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
     driver.implicitly_wait(10)
+    st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]"))
     driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
     driver.quit()
@@ -86,8 +87,8 @@ def find_job_mckinsey(search, driver):
 
 if submit_button:
     search = search.replace(" ","%20")
-    find_job_booz(search)
-    st.write()
     driver = find_job_bcg(search)
     st.write()
     find_job_mckinsey(search, driver)
+    st.write()
+    find_job_booz(search)
