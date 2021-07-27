@@ -73,7 +73,7 @@ def find_job_mckinsey(search):
     driver = webdriver.Chrome()
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
     driver.implicitly_wait(10)
-    driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
+    driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]").click()
     html = driver.page_source
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
