@@ -60,7 +60,7 @@ def find_job_bcg(search):
     driver.implicitly_wait(10)
     driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button")[0].click()
     html = driver.page_source
-    driver.close()
+    driver.quit()
     #driver.quit()
     soup = BeautifulSoup(html, "html.parser")
 
@@ -75,11 +75,11 @@ def find_job_mckinsey(search):
     #driver.delete_all_cookies()
     #driver.get("chrome://settings/clearBrowserData")
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
-    driver.implicitly_wait(14)
-    st.write(driver.find_elements_by_xpath("/html"))
+    driver.implicitly_wait(9)
+    driver.find_elements_by_xpath("/html")[0].click()
     #driver.find_elements_by_css_selector("body > div.cookie-warning-wrapper.-show > div.box > div > div > div.cookie-compliance.row > a.btn.btn-fill.cookie-btn.accept-btn.at-element-click-tracking")[0].click()
-    st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
-    driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
+    #st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
+    #driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
