@@ -60,6 +60,7 @@ def find_job_bcg(search):
     driver.implicitly_wait(10)
     driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button")[0].click()
     html = driver.page_source
+    driver.quit()
     soup = BeautifulSoup(html, "html.parser")
 
     jobs = soup.select("div .information")
@@ -68,9 +69,26 @@ def find_job_bcg(search):
     for i in jobs:
         st.markdown(f'[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})')
 
+def find_job_mckinsey(search):
+    driver = webdriver.Chrome()
+    driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
+    driver.implicitly_wait(10)
+    driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
+    html = driver.page_source
+    driver.quit()
+    soup = BeautifulSoup(html, "html.parser")
+    jobs = soup.select(".job-listing-link")
+
+    st.markdown("**McKinsey & Company**")
+    for i in jobs:
+        st.markdown(f'[{i["data-layer-text"]}](https://www.mckinsey.com/careers{i["href"][1:]}) - {i.find(class_="city ng-binding ng-scope").text}')
+        #job_link[i["data-layer-text"]] = i["href"]
+        #job_city[i["data-layer-text"]] = i.find(class_="city ng-binding ng-scope").text
 
 if submit_button:
     search = search.replace(" ","%20")
     find_job_booz(search)
     st.write()
     find_job_bcg(search)
+    st.write()
+    find_job_mckinsey(search)
