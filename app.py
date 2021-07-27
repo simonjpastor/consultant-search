@@ -60,7 +60,8 @@ def find_job_bcg(search):
     driver.implicitly_wait(10)
     driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button")[0].click()
     html = driver.page_source
-    driver.quit()
+    driver.close()
+    #driver.quit()
     soup = BeautifulSoup(html, "html.parser")
 
     jobs = soup.select("div .information")
