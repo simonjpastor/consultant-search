@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 import chromedriver_binary
+import streamlit as st
 
 APP_NAME = "Consulting Job Search"
 
@@ -65,10 +66,11 @@ def find_job_bcg(search):
     job_link = {}
     st.markdown("**BCG**")
     for i in jobs:
-        st.markdown(f"[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})")
+        st.markdown(f'[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})')
 
 
 if submit_button:
     search = search.replace(" ","%20")
     find_job_booz(search)
+    st.write()
     find_job_bcg(search)
