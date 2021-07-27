@@ -4,6 +4,7 @@ import requests
 from selenium import webdriver
 import chromedriver_binary
 import streamlit as st
+from selenium.webdriver.chrome.options import Options
 
 APP_NAME = "Consulting Job Search"
 
@@ -72,6 +73,9 @@ def find_job_bcg(search):
 
 def find_job_mckinsey(search):
     driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36"')
     #driver.delete_all_cookies()
     #driver.get("chrome://settings/clearBrowserData")
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
@@ -81,7 +85,6 @@ def find_job_mckinsey(search):
     #st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
     #driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
-    st.write(html)
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
     jobs = soup.select(".job-listing-link")
