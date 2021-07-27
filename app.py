@@ -76,7 +76,7 @@ def find_job_mckinsey(search):
     #driver.get("chrome://settings/clearBrowserData")
     driver.get(f'https://www.mckinsey.com/careers/search-jobs#?query={search}')
     driver.implicitly_wait(14)
-     st.write(driver.find_elements_by_xpath("/html"))
+    st.write(driver.find_elements_by_xpath("/html"))
     #driver.find_elements_by_css_selector("body > div.cookie-warning-wrapper.-show > div.box > div > div > div.cookie-compliance.row > a.btn.btn-fill.cookie-btn.accept-btn.at-element-click-tracking")[0].click()
     st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
     driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
