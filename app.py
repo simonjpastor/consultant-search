@@ -4,7 +4,12 @@ import requests
 from selenium import webdriver
 import chromedriver_binary
 import streamlit as st
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+import time
 
 APP_NAME = "Consulting Job Search"
 
@@ -72,7 +77,12 @@ def find_job_bcg(search):
         st.markdown(f'[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})')
 
 def find_job_mckinsey(search):
-    driver = webdriver.Chrome()
+    options = Options()
+    user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36'
+    options.add_argument('user-agent={0}'.format(user_agent))
+
+    driver = webdriver.Chrome(options=options)
+    wait = WebDriverWait(driver, 20)
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36"')
@@ -85,7 +95,7 @@ def find_job_mckinsey(search):
     #st.write(driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]"))
     #driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/a[1]")[0].click()
     html = driver.page_source
-    st.write(html)
+    #st.write(html)
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
     jobs = soup.select(".job-listing-link")
@@ -98,8 +108,8 @@ def find_job_mckinsey(search):
 
 if submit_button:
     search = search.replace(" ","%20")
-    find_job_bcg(search)
+    #find_job_bcg(search)
+    st.write()
+    #find_job_booz(search)
     st.write()
     find_job_mckinsey(search)
-    st.write()
-    find_job_booz(search)
