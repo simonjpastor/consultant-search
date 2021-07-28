@@ -75,7 +75,7 @@ def find_job_booz(search):
         if j not in excluding_list:
             locations.append(j.text)
     for f in range (0,len(locations)):
-        st.markdown(f"[{jobs[f]}]({links[f]}) - {locations[f]}")
+        st.markdown(f'[{jobs[f]}]({links[f]}) - {locations[f]}')
 
 def find_job_bcg(search, driver):
     driver.get(f"https://careers.bcg.com/search-results?m=3&keywords={search}")
@@ -96,14 +96,15 @@ def find_job_bcg(search, driver):
 def find_job_mercer(search, driver):
     driver.get(f"https://careers.mmc.com/global/en/search-results?keywords={search}")
     driver.implicitly_wait(9)
-    driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button/ppc-content")[0].click()
-
+    #driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button/ppc-content")[0].click()
+    driver.find_elements_by_xpath("/html")[0].click()
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
+    st.markdown("**Mercer**")
     for i in soup.find_all(class_="information"):
         if i.find("span").find("a"):
                 x = i.find("span").find("a")
-                st.write(x["href"], x["data-ph-at-job-title-text"],x["data-ph-at-job-location-area-text"])
+                st.markdown(f'[{x["data-ph-at-job-title-text"]}]({x["href"]}) - {x["data-ph-at-job-location-area-text"]}')
         else:
             continue
     return driver
@@ -111,11 +112,10 @@ def find_job_mercer(search, driver):
 if submit_button:
     search = search.replace(" ","%20")
     driver = find_job_mckinsey(search)
-    find_job_bcg(search, driver)
+    st.write()
+    driver = find_job_bcg(search, driver)
     st.write()
     find_job_booz(search)
-    st.write()
-    driver = find_job_bcg(search,driver)
     st.write()
     driver = find_job_mercer(search,driver)
     driver.quit()
