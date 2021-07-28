@@ -84,6 +84,7 @@ def find_job_mckinsey(search):
     driver = webdriver.Chrome(options=options)
     wait = WebDriverWait(driver, 20)
     chrome_options = Options()
+    chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36"')
     #driver.delete_all_cookies()
@@ -108,8 +109,8 @@ def find_job_mckinsey(search):
 
 if submit_button:
     search = search.replace(" ","%20")
-    #find_job_bcg(search)
+    find_job_bcg(search)
     st.write()
-    #find_job_booz(search)
+    find_job_booz(search)
     st.write()
     find_job_mckinsey(search)
