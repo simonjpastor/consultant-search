@@ -82,7 +82,6 @@ def find_job_bcg(search, driver):
     driver.implicitly_wait(10)
     driver.find_elements_by_xpath("/html/body/div[1]/section/div/div/header/div/section/div/div/div/div[2]/button")[0].click()
     html = driver.page_source
-    driver.quit()
     #driver.quit()
     soup = BeautifulSoup(html, "html.parser")
 
@@ -91,6 +90,8 @@ def find_job_bcg(search, driver):
     st.markdown("**BCG**")
     for i in jobs:
         st.markdown(f'[{i.find("a")["data-ph-at-job-title-text"]}]({i.find("a")["href"]})')
+
+    return driver
 
 def find_job_mercer(search, driver):
     driver.get(f"https://careers.mmc.com/global/en/search-results?keywords={search}")
@@ -102,9 +103,10 @@ def find_job_mercer(search, driver):
     for i in soup.find_all(class_="information"):
         if i.find("span").find("a"):
                 x = i.find("span").find("a")
-                print(x["href"], x["data-ph-at-job-title-text"],x["data-ph-at-job-location-area-text"])
+                st.write(x["href"], x["data-ph-at-job-title-text"],x["data-ph-at-job-location-area-text"])
         else:
             continue
+    return driver
 
 if submit_button:
     search = search.replace(" ","%20")
@@ -113,7 +115,8 @@ if submit_button:
     st.write()
     find_job_booz(search)
     st.write()
-    find_job_bcg(search,driver)
+    driver = find_job_bcg(search,driver)
     st.write()
-    find_job_mercer(search,driver)
+    driver = find_job_mercer(search,driver)
+    driver.quit()
 
