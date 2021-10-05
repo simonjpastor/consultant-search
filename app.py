@@ -9,7 +9,8 @@ import json
 from datetime import datetime
 import pandas as pd
 import random
-from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
+import config
+#from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
 APP_NAME = "TwittLists"
 
@@ -20,10 +21,11 @@ search = st.text_input("Enter the accounts", "@GretaThunberg, @UNEP")
 submit_button = st.button('Submit', key="search_submit")
 
 
-consumer_key=CONSUMER_KEY
-consumer_secret=CONSUMER_SECRET
-access_token_key=ACCESS_TOKEN_KEY
-access_token_secret=ACCESS_TOKEN_SCRET
+consumer_key=config.CONSUMER_KEY
+consumer_secret=config.CONSUMER_SECRET
+access_token_key=config.ACCESS_TOKEN_KEY
+access_token_secret=config.ACCESS_TOKEN_SCRET
+access_token_secret=config.ACCESS_TOKEN_SCRET
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token_key, access_token_secret)
 api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
