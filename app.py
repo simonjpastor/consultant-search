@@ -36,12 +36,10 @@ text = st_tags(
 
 submit_button = st.button('Submit', key="search_submit")
 
-
-consumer_key=config.CONSUMER_KEY
-consumer_secret=config.CONSUMER_SECRET
-access_token_key=config.ACCESS_TOKEN_KEY
-access_token_secret=config.ACCESS_TOKEN_SCRET
-access_token_secret=config.ACCESS_TOKEN_SCRET
+consumer_key=config.dic1["CONSUMER_KEY"]
+consumer_secret=config.dic1["CONSUMER_SECRET"]
+access_token_key=config.dic1["ACCESS_TOKEN_KEY"]
+access_token_secret=config.dic1["ACCESS_TOKEN_SECRET"]
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token_key, access_token_secret)
 api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
@@ -103,7 +101,7 @@ def final_members(dict_with_people,looking_for):
             if i.screen_name in cool_people.keys():
                 cool_people[i.screen_name] += 1
             else:
-                cool_people[i.screen_name] = 0
+                cool_people[i.screen_name] = 1
     return cool_people
 
 def top5(dict_with_people,looking_for):
@@ -153,7 +151,7 @@ if submit_button:
         looking_for_list.append(i.lower())
 
     for j in search:
-        cool_people[j] = 0
+        cool_people[j] = 1
 
     final_results = run(3)
     st.write(final_results)
