@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 import pandas as pd
 import random
-import config
+#import config
 import streamlit as st
 from streamlit_tags import st_tags
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
@@ -36,10 +36,10 @@ text = st_tags(
 
 submit_button = st.button('Submit', key="search_submit")
 
-consumer_key=config.dic1["CONSUMER_KEY"]
-consumer_secret=config.dic1["CONSUMER_SECRET"]
-access_token_key=config.dic1["ACCESS_TOKEN_KEY"]
-access_token_secret=config.dic1["ACCESS_TOKEN_SECRET"]
+consumer_key=ENV[CONSUMER_KEY]
+consumer_secret=ENV[CONSUMER_SECRET]
+access_token_key=ENV[ACCESS_TOKEN_KEY]
+access_token_secret=ENV[ACCESS_TOKEN_SECRET]
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token_key, access_token_secret)
 api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
