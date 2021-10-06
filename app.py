@@ -134,9 +134,7 @@ def end(results):
     return final_results
 
 if submit_button:
-    looking_for_list = []
-    for i in text:
-        looking_for_list.append(i)
+    looking_for_list = ["sustainable","environment","eco"]
 
     for j in search:
         cool_people[j] = 0
