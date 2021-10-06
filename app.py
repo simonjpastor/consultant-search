@@ -18,8 +18,21 @@ APP_NAME = "TwittLists"
 
 st.title(APP_NAME)
 
-search= [st.text_input("Enter the accounts", "GretaThunberg")]
-text = st_tags("Enter Keyword:", "Press enter to add more", ['One', 'Two', 'Three'])
+search = st_tags(
+    label='## Enter Account Names:',
+    text='Press enter to add more',
+    value=['GretaThunberg', 'WWF'],
+    suggestions=['BarackObama', 'EmmanuelMacron'],
+    maxtags = 4,
+    key='1')
+
+text = st_tags(
+    label='## Enter Keywords:',
+    text='Press enter to add more',
+    value=['Climate', 'Sustainable'],
+    suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy'],
+    maxtags = 4,
+    key='2')
 
 submit_button = st.button('Submit', key="search_submit")
 
@@ -137,11 +150,10 @@ if submit_button:
     looking_for_list = []
 
     for i in text:
-        looking_for_list.append(i)
+        looking_for_list.append(i.lower())
 
     for j in search:
         cool_people[j] = 0
-    st.write(looking_for_list)
-    st.write(cool_people)
+
     final_results = run(3)
     st.write(final_results)
