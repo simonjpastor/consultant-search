@@ -18,6 +18,9 @@ APP_NAME = "TwittLists"
 
 st.title(APP_NAME)
 
+st.write("TwittLists allows you to find the most relevant Twitter accounts on a given topic. Simply Twitter accounts that match the type of accounts you want to look for and the key terms")
+st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing particularly on those relating to the climate and sustainability")
+
 search = st_tags(
     label='## Enter Account Names:',
     text='Press enter to add more',
