@@ -18,6 +18,7 @@ APP_NAME = "TwittLists"
 st.title(APP_NAME)
 
 search = st.text_input("Enter the accounts", "@GretaThunberg, @UNEP")
+text = st.text_input("Enter the key terms", "environment, sustainable")
 
 submit_button = st.button('Submit', key="search_submit")
 
@@ -132,3 +133,13 @@ def end(results):
     final_results = pd.DataFrame.from_dict({"Accounts":accounts,"Counts":values})
     return final_results
 
+if submit_button:
+    looking_for_list = []
+    for i in text:
+        looking_for_list.append(i)
+
+    for j in search:
+        cool_people[j] = 0
+
+    final_results = run(3)
+    st.write(final_results)
