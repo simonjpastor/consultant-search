@@ -17,7 +17,7 @@ APP_NAME = "TwittLists"
 
 st.title(APP_NAME)
 
-search = st.text_input("Enter the accounts", "GretaThunberg, UNEP")
+search = st.text_input("Enter the accounts", "GretaThunberg, @UNEP")
 text = st.text_input("Enter the key terms", "environment, sustainable")
 
 submit_button = st.button('Submit', key="search_submit")
@@ -114,9 +114,9 @@ def top5(dict_with_people,looking_for):
 def run(iterations):
     initial_function(cool_people)
     top5(cool_people,looking_for_list)
-    print("_____")
+    st.write(cool_people)
     while iterations > 1:
-        print(f"{iterations} iteration successful")
+        st.write(f"{iterations} iteration successful")
         iterations = iterations - 1
         initial_function(cool_people)
         top5(cool_people,looking_for_list)
@@ -140,6 +140,5 @@ if submit_button:
 
     for j in search:
         cool_people[j] = 0
-
     final_results = run(3)
     st.write(final_results)
