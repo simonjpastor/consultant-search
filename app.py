@@ -140,5 +140,8 @@ if submit_button:
 
     for j in search:
         cool_people[j] = 0
+
+    st.write(looking_for_list)
+    st.write(cool_people)
     final_results = run(3)
     st.write(final_results)
