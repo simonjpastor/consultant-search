@@ -17,8 +17,8 @@ APP_NAME = "TwittLists"
 
 st.title(APP_NAME)
 
-search= [st.text_input("Enter the accounts", "GretaThunberg", "UNEP")]
-text = [st.text_input("Enter the key terms", "environment", "sustainable")]
+search= [st.text_input("Enter the accounts", "GretaThunberg, UNEP")]
+text = [st.text_input("Enter the key terms", "environment, sustainable")]
 
 submit_button = st.button('Submit', key="search_submit")
 
