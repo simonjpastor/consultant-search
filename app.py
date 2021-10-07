@@ -39,10 +39,10 @@ text = st_tags(
 
 submit_button = st.button('Submit', key="search_submit")
 
-consumer_key=st.secrets["CONSUMER_KEY1"]
-consumer_secret=st.secrets["CONSUMER_SECRET1"]
-access_token_key=st.secrets["ACCESS_TOKEN_KEY1"]
-access_token_secret=st.secrets["ACCESS_TOKEN_SECRET1"]
+consumer_key=st.secrets["CONSUMER_KEY2"]
+consumer_secret=st.secrets["CONSUMER_SECRET2"]
+access_token_key=st.secrets["ACCESS_TOKEN_KEY2"]
+access_token_secret=st.secrets["ACCESS_TOKEN_SECRET2"]
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token_key, access_token_secret)
 api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
