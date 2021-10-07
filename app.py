@@ -144,10 +144,13 @@ def end(results):
     results = sorted(results.items(), key=lambda x: x[1], reverse=True)
     values = []
     accounts = []
+    links = []
     for i in results:
+        link = f"https://twitter.com/{i[0]}"
+        links.append(link)
         accounts.append(i[0])
         values.append(i[1])
-    final_results = pd.DataFrame.from_dict({"Accounts":accounts,"Counts":values})
+    final_results = pd.DataFrame.from_dict({"Accounts":accounts,"Links":links,"Counts":values})
     return final_results
 
 if submit_button:
