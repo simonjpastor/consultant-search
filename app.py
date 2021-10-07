@@ -20,7 +20,7 @@ st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", u
 
 st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you to find the most relevant Twitter Accounts on a given topic</h2>", unsafe_allow_html=True)
 
-st.markdown("<h3> First input the username of the Twitter accounts similar to the ones you are looking for </h3><h4>(Example: If you are looking for climate activists enter GretaThunberg)</h4>", unsafe_allow_html=True)
+st.markdown("<h3> First input the username of the Twitter accounts similar to the ones you are looking for <em>(Example: If you are looking for climate activists enter GretaThunberg)</em>", unsafe_allow_html=True)
 st.markdown("### Then enter the key terms you want to focus on (example: climate)")
 st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
