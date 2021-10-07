@@ -18,10 +18,10 @@ APP_NAME = "TwittLists"
 
 st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", unsafe_allow_html=True)
 
-st.markdown("### TwittLists allows you to find the most relevant Twitter accounts on a given topic.")
+st.markdown("## TwittLists allows you to find the most relevant Twitter accounts on a given topic.")
 
-st.markdown("#### First input the Twitter accounts similar to the ones you are looking for (example: GretaThunberg)")
-st.markdown("#### Then enter the key terms you want to focus on (example: climate)")
+st.markdown("### First input the Twitter accounts similar to the ones you are looking for (example: GretaThunberg)")
+st.markdown("### Then enter the key terms you want to focus on (example: climate)")
 st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
 search = st_tags(
@@ -35,7 +35,7 @@ search = st_tags(
 text = st_tags(
     label='## Enter Keywords:',
     text='Press enter to add more',
-    value=['Climate', 'Sustainable'],
+    value=['Climate'],
     suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy',"cars","coffee","photography","aliens","money","comedy","fruits","vegetables","Europe","dogs","animals","artists","nature","boats","travel","tourism","football","soccer","newspapers","adventure","ngos","sports","currency","coin","military","beer","wine","cocktails","royalty","geography","history","singer","biotech","Africa","Asia","Oceania","Middle East","Maghreb"],
     maxtags = 4,
     key='2')
