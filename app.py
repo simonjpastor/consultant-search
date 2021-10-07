@@ -30,7 +30,7 @@ search = st_tags(
     value=['GretaThunberg', 'Greenpeace'],
     suggestions=['BarackObama', 'EmmanuelMacron', "narendramodi","elonmusk","billgates","nytimes","POTUS","richardbranson","NASA","JoeBiden","AOC","Forbes","guardian","AP","latimes","TIME","NewYorker","politico","WSJ","nytimes","CNN","EmmaWatson","Disney","Harvard","FBI","Princeton","nybooks","Twitter"],
     maxtags = 4,
-    color = #1DA1F2,
+    color = "#1DA1F2",
     key='1')
 
 text = st_tags(
