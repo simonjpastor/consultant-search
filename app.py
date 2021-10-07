@@ -18,7 +18,7 @@ APP_NAME = "TwittLists"
 
 st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you to find the most relevant Twitter accounts on a given topic</h2>")
+st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you to find the most relevant Twitter accounts on a given topic</h2>", unsafe_allow_html=True)
 
 st.markdown("### First input the username of the Twitter accounts similar to the ones you are looking for (example: If you are looking for climate activists you can add GretaThunberg)")
 st.markdown("### Then enter the key terms you want to focus on (example: climate)")
