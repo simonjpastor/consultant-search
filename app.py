@@ -16,7 +16,7 @@ from streamlit_tags import st_tags
 
 APP_NAME = "TwittLists"
 
-st.title(APP_NAME)
+st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", unsafe_allow_html=True)
 
 st.markdown("### TwittLists allows you to find the most relevant Twitter accounts on a given topic.")
 
