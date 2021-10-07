@@ -20,8 +20,8 @@ st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", u
 
 st.markdown("### TwittLists allows you to find the most relevant Twitter accounts on a given topic.")
 
-st.write("First input the Twitter accounts similar to the ones you are looking for (example: GretaThunberg)")
-st.write("Then enter the key terms you want to focus on (example: climate)")
+st.markdown("#### First input the Twitter accounts similar to the ones you are looking for (example: GretaThunberg)")
+st.markdown("#### Then enter the key terms you want to focus on (example: climate)")
 st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
 search = st_tags(
