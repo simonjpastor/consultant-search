@@ -25,7 +25,7 @@ search = st_tags(
     label='## Enter Account Names:',
     text='Press enter to add more',
     value=['GretaThunberg', 'WWF'],
-    suggestions=['BarackObama', 'EmmanuelMacron'],
+    suggestions=['BarackObama', 'EmmanuelMacron', "narendramodi","elonmusk","billgates","nytimes","POTUS","richardbranson","NASA","JoeBiden","AOC","Forbes","guardian","AP","latimes","TIME","NewYorker","politico","WSJ","nytimes","CNN","EmmaWatson","Disney","Harvard","FBI","Princeton","nybooks","Twitter"],
     maxtags = 4,
     key='1')
 
@@ -33,7 +33,7 @@ text = st_tags(
     label='## Enter Keywords:',
     text='Press enter to add more',
     value=['Climate', 'Sustainable'],
-    suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy'],
+    suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy',"cars","coffee","photography","aliens","money","comedy","fruits","vegetables","Europe","dogs","animals","artists","nature","boats","travel","tourism","football","soccer","newspapers","adventure","ngos","sports","currency","coin","military","beer","wine","cocktails","royalty","geography","history","singer","biotech","Africa","Asia","Oceania","Middle East","Maghreb"],
     maxtags = 4,
     key='2')
 
