@@ -12,7 +12,7 @@ import random
 #import config
 import streamlit as st
 from streamlit_tags import st_tags
-#import streamlit_analytics
+import streamlit_analytics
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
 #streamlit_analytics.start_tracking()
