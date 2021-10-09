@@ -140,9 +140,10 @@ def top5(dict_with_people,looking_for):
     return x
 
 def run(iterations):
+    set_iterations = iterations
     initial_function(cool_people)
     top5(cool_people,looking_for_list)
-    st.write(f"Iteration #{abs(4-iterations)} successful")
+    st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
     while iterations > 1:
         iterations = iterations - 1
         initial_function(cool_people)
