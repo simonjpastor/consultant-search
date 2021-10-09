@@ -177,7 +177,7 @@ if submit_button:
     #st.write(x.description)
     if len(final_results) >= 10:
         st.title("Top 10 Results")
-        for k in range(0,5):
+        for k in range(0,10):
             x = api.get_user(final_results["Accounts"][k])
             st.title(x.name)
             if len(x.profile_image_url) > 3:
