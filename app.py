@@ -179,7 +179,7 @@ if submit_button:
     for k in range(0,3):
         x = api.get_user(final_results["Accounts"][k])
         st.write(x.name)
-        st.image(x.profile_image_url, width=120, height=67)
+        st.image(x.profile_image_url, width=120)
         st.write(x.screen_name)
         st.write(x.description)
         st.write(f"Followers Count: {x.followers_count}")
