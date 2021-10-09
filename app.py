@@ -13,6 +13,7 @@ import random
 import streamlit as st
 from streamlit_tags import st_tags
 import streamlit_analytics
+import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
 streamlit_analytics.start_tracking()
@@ -173,7 +174,7 @@ if submit_button:
 
     for i in range(0,3):
         x = api.get_user(i)
-        st.markdown(f"<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>",unsafe_allow_html=True)
+        components.html(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
     st.write("All Results")
     st.write(final_results)
