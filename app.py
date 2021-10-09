@@ -171,6 +171,7 @@ if submit_button:
         cool_people[j] = 1
 
     final_results = run(3)
+    st.write(f"{len(final_results)} results found")
 
     #x = api.get_user(final_results["Accounts"][0])
     #st.write(x.screen_name)
