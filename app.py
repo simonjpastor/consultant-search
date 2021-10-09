@@ -175,15 +175,26 @@ if submit_button:
     #x = api.get_user(final_results["Accounts"][0])
     #st.write(x.screen_name)
     #st.write(x.description)
-
-    for k in range(0,3):
-        x = api.get_user(final_results["Accounts"][k])
-        st.write(x.name)
-        st.image(x.profile_image_url, width=120)
-        st.write(x.screen_name)
-        st.write(x.description)
-        st.write(f"Followers Count: {x.followers_count}")
-        st.write(f"Following: {x.friends_count}")
+    if len(final_results) >= 10:
+        for k in range(0,10):
+            st.title("Top 10 Results")
+            x = api.get_user(final_results["Accounts"][k])
+            st.title(x.name)
+            st.image(x.profile_image_url, width=120)
+            st.write(x.screen_name)
+            st.write(x.description)
+            st.write(f"Followers Count: {x.followers_count}")
+            st.write(f"Following: {x.friends_count}")
+    else:
+        for k in range(0,len(final_results)):
+            st.title(f"Top {len(final_results)} Results")
+            x = api.get_user(final_results["Accounts"][k])
+            st.title(x.name)
+            st.image(x.profile_image_url, width=120)
+            st.write(x.screen_name)
+            st.write(x.description)
+            st.write(f"Followers Count: {x.followers_count}")
+            st.write(f"Following: {x.friends_count}")
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
 
