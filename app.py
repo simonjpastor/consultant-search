@@ -180,9 +180,11 @@ if submit_button:
         for k in range(0,5):
             x = api.get_user(final_results["Accounts"][k])
             st.title(x.name)
-            st.image(x.profile_image_url, width=120)
+            if len(x.profile_image_url) > 3:
+                st.image(x.profile_image_url, width=120)
             st.write(x.screen_name)
-            st.write(x.description)
+            if len(x.description) > 3:
+                st.write(x.description)
             st.write(f"Followers Count: {x.followers_count}")
             st.write(f"Following: {x.friends_count}")
     else:
@@ -190,9 +192,11 @@ if submit_button:
         for k in range(0,len(final_results)):
             x = api.get_user(final_results["Accounts"][k])
             st.title(x.name)
-            st.image(x.profile_image_url, width=120)
+            if len(x.profile_image_url) > 3:
+                st.image(x.profile_image_url, width=120)
             st.write(x.screen_name)
-            st.write(x.description)
+            if len(x.description) > 3:
+                st.write(x.description)
             st.write(f"Followers Count: {x.followers_count}")
             st.write(f"Following: {x.friends_count}")
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
