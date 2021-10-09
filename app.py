@@ -47,7 +47,7 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
-iterations = st.number_input(label='Enter Number of Iterations (Default=3)',min_value=1,max_value=4,value=3,step=1)
+iterations = st.number_input(label='Enter Number of Iterations (Default=2)',min_value=1,max_value=4,value=2,step=1)
 
 submit_button = st.button('Submit', key="search_submit")
 
@@ -172,7 +172,7 @@ if submit_button:
     for j in search:
         cool_people[j] = 1
 
-    final_results = run(3)
+    final_results = run(iterations)
     st.write(f"{len(final_results)} results found")
 
     #x = api.get_user(final_results["Accounts"][0])
