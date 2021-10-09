@@ -174,8 +174,9 @@ if submit_button:
     final_results = run(3)
 
     for i in range(0,3):
-        x = api.get_user(i)
-        st.markdown(f"""<h3 style='text-align: center'>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
+        x = api.get_user(final_results["Accounts"][i])
+        st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
+
 
     st.write("All Results")
     st.write(final_results)
