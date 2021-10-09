@@ -177,9 +177,6 @@ if submit_button:
     final_results = run(iterations)
     st.write(f"{len(final_results)} results found")
 
-    #x = api.get_user(final_results["Accounts"][0])
-    #st.write(x.screen_name)
-    #st.write(x.description)
     if len(final_results) >= 10:
         st.title("Top 10 Results")
         for k in range(0,10):
