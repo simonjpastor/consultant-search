@@ -178,9 +178,12 @@ if submit_button:
 
     for k in range(0,3):
         x = api.get_user(final_results["Accounts"][k])
-        st.image(x.profile_image_url)
+        st.write(x.name)
+        st.image(x.profile_image_url, width=120, height=67)
         st.write(x.screen_name)
         st.write(x.description)
+        st.write("Followers Count: "x.followers_count)
+        st.write("Following: "x.friends_count)
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
 
