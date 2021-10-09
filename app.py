@@ -47,6 +47,8 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
+st.number_input("Enter Number",value=0,key=1)
+
 submit_button = st.button('Submit', key="search_submit")
 
 random_number = random.randrange(1, 4)
@@ -140,8 +142,8 @@ def top5(dict_with_people,looking_for):
 def run(iterations):
     initial_function(cool_people)
     top5(cool_people,looking_for_list)
+    st.write(f"Iteration #{abs(4-iterations)} successful")
     while iterations > 1:
-        st.write(f"Iteration #{abs(4-iterations)} successful")
         iterations = iterations - 1
         initial_function(cool_people)
         top5(cool_people,looking_for_list)
