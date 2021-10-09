@@ -47,7 +47,7 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
-st.number_input("Enter Number",value=0,key=1)
+iterations = st.number_input("Enter Number",value=0,key=1)
 
 submit_button = st.button('Submit', key="search_submit")
 
