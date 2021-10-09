@@ -47,7 +47,7 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
-iterations = st.number_input(label='Enter Number of Iterations (Default=2)',min_value=1,max_value=4,value=2,step=1)
+iterations = st.number_input(label='Number of Iterations (Default=2)',min_value=1,max_value=4,value=2,step=1)
 
 submit_button = st.button('Submit', key="search_submit")
 
@@ -148,6 +148,7 @@ def run(iterations):
         iterations = iterations - 1
         initial_function(cool_people)
         top5(cool_people,looking_for_list)
+        st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
     final_results = end(cool_people)
     return final_results
 
