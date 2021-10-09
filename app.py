@@ -141,7 +141,7 @@ def run(iterations):
     initial_function(cool_people)
     top5(cool_people,looking_for_list)
     while iterations > 1:
-        st.write(f"{iterations} iteration successful")
+        st.write(f"Iteration #{abs(4-iterations)} successful")
         iterations = iterations - 1
         initial_function(cool_people)
         top5(cool_people,looking_for_list)
