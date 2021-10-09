@@ -176,8 +176,8 @@ if submit_button:
     #st.write(x.screen_name)
     #st.write(x.description)
     if len(final_results) >= 10:
+        st.title("Top 10 Results")
         for k in range(0,10):
-            st.title("Top 10 Results")
             x = api.get_user(final_results["Accounts"][k])
             st.title(x.name)
             st.image(x.profile_image_url, width=120)
@@ -186,8 +186,8 @@ if submit_button:
             st.write(f"Followers Count: {x.followers_count}")
             st.write(f"Following: {x.friends_count}")
     else:
+        st.title(f"Top {len(final_results)} Results")
         for k in range(0,len(final_results)):
-            st.title(f"Top {len(final_results)} Results")
             x = api.get_user(final_results["Accounts"][k])
             st.title(x.name)
             st.image(x.profile_image_url, width=120)
