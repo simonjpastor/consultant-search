@@ -198,5 +198,5 @@ if submit_button:
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
 
-    st.write("All Results")
+    st.title("All Results")
     st.write(final_results)
