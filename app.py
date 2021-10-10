@@ -155,6 +155,7 @@ def run(iterations):
     while iterations > 1:
         iterations = iterations - 1
         count_number = count_number - 4
+        count_number = max(count_number,2)
         initial_function(cool_people)
         top5(cool_people,looking_for_list,count_number)
         st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
