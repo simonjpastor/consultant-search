@@ -81,10 +81,10 @@ def initial_function(dict_with_people):
         dict_with_people_list.append(peoples)
     return dict_with_people_list
 
-def members_to_lists(dict_with_people,looking_for):
+def members_to_lists(dict_with_people,looking_for,count_number):
     for people in dict_with_people_list:
         try :
-            for i in api.lists_memberships(people, count=15):
+            for i in api.lists_memberships(people, count=count_number):
                 if i.id not in civic_lists and i.id not in civic_lists_history:
                     for j in looking_for:
                         if j in i.name.lower():
@@ -102,8 +102,8 @@ def members_to_lists(dict_with_people,looking_for):
     return civic_lists
 
 
-def list_to_members(dict_with_people,looking_for):
-    for i in members_to_lists(dict_with_people,looking_for):
+def list_to_members(dict_with_people,looking_for,count_number):
+    for i in members_to_lists(dict_with_people,looking_for,count_number):
         try :
             all_members.append(api.list_members(list_id=i))
         except error.TweepError:
@@ -111,8 +111,8 @@ def list_to_members(dict_with_people,looking_for):
         civic_lists.remove(i)
     return all_members
 
-def final_members(dict_with_people,looking_for):
-    for members in list_to_members(dict_with_people,looking_for):
+def final_members(dict_with_people,looking_for,count_number):
+    for members in list_to_members(dict_with_people,looking_for,count_number):
         for i in members:
             if i.screen_name in cool_people.keys():
                 cool_people[i.screen_name] += 1
@@ -120,10 +120,10 @@ def final_members(dict_with_people,looking_for):
                 cool_people[i.screen_name] = 1
     return cool_people
 
-def top5(dict_with_people,looking_for):
+def top5(dict_with_people,looking_for,count_number):
     ranking = []
     number = []
-    for i,j in final_members(dict_with_people,looking_for).items():
+    for i,j in final_members(dict_with_people,looking_for,count_number).items():
         if len(ranking) < 300:
             ranking.append(i)
             number.append(j)
@@ -142,12 +142,21 @@ def top5(dict_with_people,looking_for):
 def run(iterations):
     set_iterations = iterations
     initial_function(cool_people)
-    top5(cool_people,looking_for_list)
+    if iterations = 2:
+        count_number = 15
+    elif iterations = 1:
+        count_number = 20
+    elif iterations = 3:
+        count_number = 10
+    elif iterations = 4:
+        count_number = 7
+    top5(cool_people,looking_for_list,count_number)
     st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
     while iterations > 1:
         iterations = iterations - 1
+        count_number = count_number - 2
         initial_function(cool_people)
-        top5(cool_people,looking_for_list)
+        top5(cool_people,looking_for_list,count_number)
         st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
     final_results = end(cool_people)
     return final_results
