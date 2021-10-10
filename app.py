@@ -149,12 +149,12 @@ def run(iterations):
     elif iterations == 3:
         count_number = 10
     elif iterations == 4:
-        count_number = 7
+        count_number = 8
     top5(cool_people,looking_for_list,count_number)
     st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
     while iterations > 1:
         iterations = iterations - 1
-        count_number = count_number - 2
+        count_number = count_number - 4
         initial_function(cool_people)
         top5(cool_people,looking_for_list,count_number)
         st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
