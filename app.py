@@ -142,13 +142,13 @@ def top5(dict_with_people,looking_for,count_number):
 def run(iterations):
     set_iterations = iterations
     initial_function(cool_people)
-    if iterations = 2:
+    if iterations == 2:
         count_number = 15
-    elif iterations = 1:
+    elif iterations == 1:
         count_number = 20
-    elif iterations = 3:
+    elif iterations == 3:
         count_number = 10
-    elif iterations = 4:
+    elif iterations == 4:
         count_number = 7
     top5(cool_people,looking_for_list,count_number)
     st.write(f"Iteration #{abs(iterations-set_iterations-1)} successful")
