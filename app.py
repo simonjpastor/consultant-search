@@ -203,8 +203,11 @@ if submit_button:
             st.write(f"Last Tweet: {x.status.text}")
             st.write(f"Followers Count: {x.followers_count}")
             st.write(f"Following: {x.friends_count}")
+
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
 
     st.title("All Results")
     st.write(final_results)
+
+    st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv',mime='text/csv')
