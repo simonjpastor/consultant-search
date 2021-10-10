@@ -84,7 +84,7 @@ def initial_function(dict_with_people):
 def members_to_lists(dict_with_people,looking_for):
     for people in dict_with_people_list:
         try :
-            for i in api.lists_memberships(people, count=10):
+            for i in api.lists_memberships(people, count=20):
                 if i.id not in civic_lists and i.id not in civic_lists_history:
                     for j in looking_for:
                         if j in i.name.lower():
