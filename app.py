@@ -219,4 +219,4 @@ if submit_button:
     st.title("All Results")
     st.write(final_results)
 
-    st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
+    #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
