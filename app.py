@@ -51,14 +51,16 @@ iterations = st.number_input(label='Number of Iterations (Default=2) The more it
 
 submit_button = st.button('Submit', key="search_submit")
 
-random_number = random.randrange(1, 11)
-consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
-consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
-access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
-access_token_secret=st.secrets[f"ACCESS_TOKEN_SECRET{random_number}"]
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token_key, access_token_secret)
-api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
+def set_api():
+    random_number = random.randrange(1, 11)
+    consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
+    consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
+    access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
+    access_token_secret=st.secrets[f"ACCESS_TOKEN_SECRET{random_number}"]
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token_key, access_token_secret)
+    api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
+    return api
 
 civic_lists = []
 civic_lists_history = []
@@ -175,6 +177,7 @@ def end(results):
     return final_results
 
 if submit_button:
+    api = set_api()
     looking_for_list = []
 
     for i in text:
