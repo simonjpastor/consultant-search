@@ -51,7 +51,7 @@ iterations = st.number_input(label='Number of Iterations (Default=2) The more it
 
 submit_button = st.button('Submit', key="search_submit")
 
-random_number = random.randrange(1, 5)
+random_number = random.randrange(1, 9)
 consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
 consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
 access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
