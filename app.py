@@ -51,6 +51,8 @@ iterations = st.number_input(label='Number of Iterations (Default=2) The more it
 
 submit_button = st.button('Submit', key="search_submit")
 
+streamlit_analytics.stop_tracking()
+
 def set_api():
     random_number = random.randrange(1, 11)
     consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
