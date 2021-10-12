@@ -53,7 +53,7 @@ st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\
   window.dataLayer = window.dataLayer || [];\
   function gtag(){dataLayer.push(arguments)};\
   gtag('js', new Date());\
-  gtag('config', {st.secrets'TRACKING_ID'});\
+  gtag('config', {st.secrets['TRACKING_ID']});\
 </script>""",unsafe_allow_html=True)
 
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
