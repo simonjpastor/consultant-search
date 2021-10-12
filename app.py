@@ -222,13 +222,5 @@ if submit_button:
     st.title("All Results")
     st.write(final_results)
 
-st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\
-    <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\
-<script>\
-  window.dataLayer = window.dataLayer || [];\
-  function gtag(){dataLayer.push(arguments)};\
-  gtag('js', new Date());\
-  gtag('config', {st.secrets['TRACKING_ID']});\
-</script>""",unsafe_allow_html=True)
-
+#st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\ <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\ <script>\ window.dataLayer = window.dataLayer || [];\ function gtag(){dataLayer.push(arguments)};\ gtag('js', new Date());\ gtag('config', {st.secrets['TRACKING_ID']});\ </script>""",unsafe_allow_html=True)
     #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
