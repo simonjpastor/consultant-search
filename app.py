@@ -47,15 +47,6 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
-st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\
-    <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\
-<script>\
-  window.dataLayer = window.dataLayer || [];\
-  function gtag(){dataLayer.push(arguments)};\
-  gtag('js', new Date());\
-  gtag('config', {st.secrets['TRACKING_ID']});\
-</script>""",unsafe_allow_html=True)
-
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
 
 submit_button = st.button('Submit', key="search_submit")
@@ -230,5 +221,14 @@ if submit_button:
 
     st.title("All Results")
     st.write(final_results)
+
+st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\
+    <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\
+<script>\
+  window.dataLayer = window.dataLayer || [];\
+  function gtag(){dataLayer.push(arguments)};\
+  gtag('js', new Date());\
+  gtag('config', {st.secrets['TRACKING_ID']});\
+</script>""",unsafe_allow_html=True)
 
     #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
