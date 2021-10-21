@@ -222,9 +222,9 @@ if submit_button:
     for j in search:
         cool_people[j] = 1
 
-    spreadsheet_key, wks_name, creds, cell_of_start_df = google_sheets()
-    final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":""}, index=[0])
-    update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
+    #spreadsheet_key, wks_name, creds, cell_of_start_df = google_sheets()
+    #final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":""}, index=[0])
+    #update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
     final_results = run(iterations)
     st.write(f"{len(final_results)} results found")
@@ -262,8 +262,8 @@ if submit_button:
     st.title("All Results")
     st.write(final_results)
 
-    final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
-    update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
+    #final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
+    #update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
 #st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\ <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\ <script>\ window.dataLayer = window.dataLayer || [];\ function gtag(){dataLayer.push(arguments)};\ gtag('js', new Date());\ gtag('config', {st.secrets['TRACKING_ID']});\ </script>""",unsafe_allow_html=True)
     #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
