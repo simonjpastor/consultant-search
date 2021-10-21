@@ -223,7 +223,7 @@ if submit_button:
         cool_people[j] = 1
 
     spreadsheet_key, wks_name, creds, cell_of_start_df = google_sheets()
-    final = pd.DataFrame({f"Twitter Accounts":{search}, "Key terms":{text}, "Results":""})
+    final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":""})
     update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
     final_results = run(iterations)
@@ -262,7 +262,7 @@ if submit_button:
     st.title("All Results")
     st.write(final_results)
 
-    final = pd.DataFrame({f"Twitter Accounts":{search}, "Key terms":{text}, "Results":{list(final_results["Accounts"])}})
+    final = pd.DataFrame({f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))})
     update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
 #st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics -->\ <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>\ <script>\ window.dataLayer = window.dataLayer || [];\ function gtag(){dataLayer.push(arguments)};\ gtag('js', new Date());\ gtag('config', {st.secrets['TRACKING_ID']});\ </script>""",unsafe_allow_html=True)
