@@ -188,7 +188,7 @@ def google_sheets():
 
 
     # add credentials to the account
-    creds = ServiceAccountCredentials.from_json_keyfile_name('x3.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('x2.json', scope)
 
     # authorize the clientsheet
     client = gspread.authorize(creds)
