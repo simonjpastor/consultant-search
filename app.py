@@ -203,7 +203,7 @@ def google_sheets():
     return spreadsheet_key, wks_name, creds, cell_of_start_df
 
 def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df):
-    d2g.append(final,
+    d2g.upload(final,
         spreadsheet_key,
         wks_name,
         credentials=creds,
