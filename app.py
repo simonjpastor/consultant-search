@@ -16,6 +16,7 @@ import streamlit_analytics
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from df2gspread import df2gspread as d2g
+from googleapiclient import discovery
 #import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
@@ -184,7 +185,7 @@ def end(results):
 
 def google_sheets():
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    sheet = client.open_by_key(spreadsheet_key)
+
 
     # add credentials to the account
     creds = ServiceAccountCredentials.from_json_keyfile_name('x3.json', scope)
@@ -193,6 +194,7 @@ def google_sheets():
     client = gspread.authorize(creds)
 
     spreadsheet_key = st.secrets["spreadsheet_key"]
+    sheet = client.open_by_key(spreadsheet_key)
 
     wks_name = "Sheet1"
     next_free_line = len(sheet.values_get('A1:J1000')["values"]) + 1
