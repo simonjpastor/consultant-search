@@ -18,6 +18,16 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from df2gspread import df2gspread as d2g
 from googleapiclient import discovery
+
+st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5DJ3LEXY9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', {st.secrets['TRACKING_ID']});
+</script></head>""")
 #import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
@@ -276,5 +286,4 @@ if submit_button:
     final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
     update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
-st.markdown(f"""<!-- Global Site Tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script> <script> window.dataLayer = window.dataLayer || [];\ function gtag(){{dataLayer.push(arguments)}};\ gtag('js', new Date());\ gtag('config', {st.secrets['TRACKING_ID']});\ </script>""",unsafe_allow_html=True)
     #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
