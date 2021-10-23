@@ -20,7 +20,7 @@ from df2gspread import df2gspread as d2g
 from googleapiclient import discovery
 
 st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5DJ3LEXY9"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
