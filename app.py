@@ -187,7 +187,7 @@ def end(results):
 def google_sheets():
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
-    x = {"type": ,
+    x = {"type": st.secrets['type'],
     "project_id": st.secrets['project_id'],
     "private_key_id": st.secrets['private_key_id'],
     "private_key": st.secrets['private_key'],
