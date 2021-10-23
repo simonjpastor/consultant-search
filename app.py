@@ -24,9 +24,7 @@ st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-
-  gtag('config', {st.secrets['TRACKING_ID']});
+  gtag('js', new Date()); gtag('config', '{st.secrets['TRACKING_ID']}');
 </script></head>""", unsafe_allow_html=True)
 #import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
