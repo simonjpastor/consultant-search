@@ -44,8 +44,6 @@ st.markdown("<h3> First input the username of the Twitter accounts similar to th
 st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
-#empty = st.checkbox("Check Box to Clear Default Values")
-
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
     text='Press enter to add more',
