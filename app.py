@@ -46,7 +46,6 @@ st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Ex
 
 #empty = st.checkbox("Check Box to Clear Default Values")
 
-
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
     text='Press enter to add more',
