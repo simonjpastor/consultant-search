@@ -184,12 +184,23 @@ def end(results):
     values = []
     accounts = []
     links = []
+    followers = []
+    following = []
+    protected = []
+    verified = []
+    location = []
     for i in results:
+        y = api.get_user(i[0])
         link = f"https://twitter.com/{i[0]}"
         links.append(link)
         accounts.append(i[0])
         values.append(i[1])
-    final_results = pd.DataFrame.from_dict({"Accounts":accounts,"Counts":values})
+        followers.append(y.followers_count)
+        following.append(y.friends_count)
+        protected.append(y.protected)
+        verified.append(y.verified)
+        location.append(y.location)
+    final_results = pd.DataFrame.from_dict({"Accounts":accounts,"Verified":verified,"Followers":followers,"Following":following,"Location":location,"Links":links,"Counts":values, "Protected":protected})
     return final_results
 
 
