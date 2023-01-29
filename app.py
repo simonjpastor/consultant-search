@@ -62,7 +62,7 @@ def most_common(lst):
 api = set_api()
 
 random_topic = random.randrange(0, 5)
-suggested_texts = []
+#suggested_texts = []
 
 search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
 search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
@@ -259,7 +259,7 @@ if submit_button:
     for i in search_values[random_topic]:
         st.write(i)
         suggested_texts += api.lists_memberships(screen_name=i, count=10)
-        st.write(suggested_texts)
+        st.write(suggested_texts[0])
         suggestions = most_common(suggested_texts)[:4]
         st.write("Better Topics: ", suggestions)
 
