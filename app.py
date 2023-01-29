@@ -294,19 +294,19 @@ if submit_button:
 
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
-    def make_clickable(link):
+    #def make_clickable(link):
         # target _blank to open new window
         # extract clickable text to display for your link
-        text = link.split('=')[1]
-        return f'<a target="_blank" href="{link}">{text}</a>'
+        #text = link.split('=')[1]
+        #return f'<a target="_blank" href="{link}">{text}</a>'
 
-    st.title("All Results")
+    #st.title("All Results")
     # link is the column with hyperlinks
-    final_results['Links'] = final_results['Links'].apply(make_clickable)
-    final_results = final_results.to_html(escape=False)
-    st.write(final_results, unsafe_allow_html=True)
+    #final_results['Links'] = final_results['Links'].apply(make_clickable)
+    #final_results = final_results.to_html(escape=False)
+    #st.write(final_results, unsafe_allow_html=True)
 
-    #st.write(final_results)
+    st.write(final_results)
 
     final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
     update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
