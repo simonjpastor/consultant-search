@@ -262,7 +262,8 @@ if submit_button:
             suggested_texts.append(list_name)
         #st.write(suggested_texts[0])
     #suggestions = most_common(suggested_texts)
-    st.write(suggested_texts)
+    for s in suggested_texts:
+        st.write(s)
 
     looking_for_list = []
 
