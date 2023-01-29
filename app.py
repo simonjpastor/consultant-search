@@ -258,7 +258,7 @@ def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df
 if submit_button:
     for i in search_values[random_topic]:
         st.write(i)
-        suggested_texts += api.lists_memberships(screen_name=i, count=10)
+        suggested_texts = api.lists_memberships(screen_name=i, count=10)
         st.write(suggested_texts[0])
         suggestions = most_common(suggested_texts)[:4]
         st.write("Better Topics: ", suggestions)
