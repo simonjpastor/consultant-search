@@ -304,7 +304,7 @@ if submit_button:
         #text = link.split('=')[1]
         #return f'<a target="_blank" href="{link}">{text}</a>'
 
-    #st.title("All Results")
+    st.title("All Results")
     # link is the column with hyperlinks
     #final_results['Links'] = final_results['Links'].apply(make_clickable)
     #final_results = final_results.to_html(escape=False)
