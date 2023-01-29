@@ -260,8 +260,8 @@ if submit_button:
         for list_name in api.lists_memberships(screen_name=i, count=10):
             suggested_texts.append(list_name.full_name)
         #st.write(suggested_texts[0])
-    suggestions = most_common(suggested_texts)
-    st.write("Better Topics: ", suggestions)
+    #suggestions = most_common(suggested_texts)
+    st.write("Better Topics: ", suggested_texts)
 
     looking_for_list = []
 
