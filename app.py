@@ -298,7 +298,7 @@ if submit_button:
         # target _blank to open new window
         # extract clickable text to display for your link
         text = link.split('=')[1]
-    return f'<a target="_blank" href="{link}">{text}</a>'
+        return f'<a target="_blank" href="{link}">{text}</a>'
 
     st.title("All Results")
     # link is the column with hyperlinks
