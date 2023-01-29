@@ -45,6 +45,17 @@ st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you
 #st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
+def set_api():
+    random_number = random.randrange(1, 11)
+    consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
+    consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
+    access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
+    access_token_secret=st.secrets[f"ACCESS_TOKEN_SECRET{random_number}"]
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token_key, access_token_secret)
+    api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
+    return api
+
 api = set_api()
 random_topic = random.randrange(0, 5)
 
@@ -81,17 +92,6 @@ agree = st.checkbox('Display images and last tweets of top 10 results')
 submit_button = st.button('Submit', key="search_submit")
 
 #streamlit_analytics.stop_tracking(unsafe_password=st.secrets["ANALYTICS_KEY"])
-
-def set_api():
-    random_number = random.randrange(1, 11)
-    consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
-    consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
-    access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
-    access_token_secret=st.secrets[f"ACCESS_TOKEN_SECRET{random_number}"]
-    auth = OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token_key, access_token_secret)
-    api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
-    return api
 
 civic_lists = []
 civic_lists_history = []
