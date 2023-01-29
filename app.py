@@ -260,8 +260,7 @@ if submit_button:
         for j in api.lists_memberships(screen_name=i, count=10):
             list_name = api.get_list(list_id = j.full_name.split("/")[1]).name
             #suggested_texts.append(list_name)
-    for s in suggested_texts:
-        st.write(s)
+            st.write(list_name)
 
     looking_for_list = []
 
