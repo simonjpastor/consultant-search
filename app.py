@@ -47,11 +47,13 @@ st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you
 
 random_topic = random.randrange(0, 5)
 
-
 search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
 for i in search_values[random_topic]:
-    suggested_texts = api.lists_memberships(i, count=10)
-    print(suggested_texts)
+    suggested_texts.append(api.lists_memberships(i, count=10))
+
+suggestions = smost_common(suggested_texts)
+
+print(suggested_texts)
 #search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
 
 
@@ -66,7 +68,7 @@ search = st_tags(
 text = st_tags(
     label='## Enter Topics or Keywords you want to focus on:',
     text='Press enter to add more',
-    value=suggested_texts,
+    value=suggested_texts[:3],
     suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy',"cars","coffee","photography","aliens","money","comedy","fruits","vegetables","Europe","dogs","animals","artists","nature","boats","travel","tourism","football","soccer","newspapers","adventure","ngos","sports","currency","coin","military","beer","wine","cocktails","royalty","geography","history","singer","biotech","Africa","Asia","Oceania","Middle East","Maghreb","cooking","literature","poetry","fiction","dance","film","music","opera","theatre","architecture","drawing","painting","sculpture","culture","health","exercise","nutrition","fitness","antiquity","middle age","renaissance","mathematics","algebra","calculus","geometry","logic","statistics","biology","biochemistry","botany","ecology","zoology","astronomy","sciences","chemistry","earth sciences","physics","psychology","relationships","love","humanism","theology","religion","economics","linguistics","languages","american","indian","australian", "spanish","italian","french","german","swiss","swedish","austrian","canadian","pakistani","chinese","japanese","brazilian","political science","law","legal","sociology","anthropology","criminal justice","justice","crime","education","public affairs","business","vc","venture capital","finance","marketing","social media","management","influencer","artificial intelligence","machine learning","deep learning","data science","agriculture","aerospace","biotechnology","communication","neuroscience","quantum mechanics","energy","oil","industry","retail","library","books","machines","fashion","manufacturing","army","navy","permaculture","robotics","nuclear","sustainable development","space exploration","space","telecommunication","internet of things","iot","transport","vehicles","autonomous vehicles"],
     maxtags = 9,
     key='2')
@@ -104,6 +106,8 @@ dict_with_people_list = []
 cool_people = {}
 cool_followers = {}
 
+def most_common(lst):
+        return max(set(lst), key=lst.count)
 
 def initial_function(dict_with_people):
     #Use this function at the very beginning and after each successful final_members() function
