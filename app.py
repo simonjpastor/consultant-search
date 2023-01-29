@@ -45,6 +45,7 @@ st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you
 #st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
+api = set_api()
 random_topic = random.randrange(0, 5)
 
 search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
@@ -260,7 +261,6 @@ def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df
         clean=False)
 
 if submit_button:
-    api = set_api()
     looking_for_list = []
 
     for i in text:
