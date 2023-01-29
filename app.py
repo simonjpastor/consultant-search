@@ -12,8 +12,7 @@ import pandas as pd
 import random
 #import config
 import streamlit as st
-from streamlit_tags import st_tags
-import streamlit_analytics
+#import streamlit_analytics
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from df2gspread import df2gspread as d2g
@@ -30,7 +29,7 @@ st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
 #import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
-streamlit_analytics.start_tracking()
+#streamlit_analytics.start_tracking()
 #streamlit_analytics.track(save_to_json="/Users/simonpastor/Documents/Github/twittlist/file.json")
 
 APP_NAME = "TwittLists"
@@ -65,7 +64,7 @@ iterations = st.number_input(label='Number of Iterations (Default=2) The more it
 
 submit_button = st.button('Submit', key="search_submit")
 
-streamlit_analytics.stop_tracking(unsafe_password=st.secrets["ANALYTICS_KEY"])
+#streamlit_analytics.stop_tracking(unsafe_password=st.secrets["ANALYTICS_KEY"])
 
 def set_api():
     random_number = random.randrange(1, 11)
