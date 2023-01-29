@@ -87,7 +87,7 @@ text = st_tags(
     maxtags = 9,
     key='2')
 
-print(suggested_texts))
+print(suggested_texts)
 
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
 
