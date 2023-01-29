@@ -68,7 +68,6 @@ search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nyti
 for i in search_values[random_topic]:
     suggested_texts.append(api.lists_memberships(i, count=10))
 
-print(suggested_texts)
 search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
 
 search = st_tags(
