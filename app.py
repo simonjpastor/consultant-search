@@ -62,7 +62,7 @@ def most_common(lst):
 api = set_api()
 
 random_topic = random.randrange(0, 5)
-#suggested_texts = []
+suggested_texts = []
 
 search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
 search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
@@ -258,10 +258,11 @@ def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df
 if submit_button:
     for i in search_values[random_topic]:
         st.write(i)
-        suggested_texts = api.lists_memberships(screen_name=i, count=10)
-        st.write(suggested_texts[0])
-        suggestions = most_common(suggested_texts)[:4]
-        st.write("Better Topics: ", suggestions)
+        for list_name in api.lists_memberships(screen_name=i, count=10):
+            suggested_texts.append(list_name["name"])
+        #st.write(suggested_texts[0])
+    suggestions = most_common(suggested_texts)[:4]
+    st.write("Better Topics: ", suggestions)
 
     looking_for_list = []
 
