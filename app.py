@@ -45,10 +45,15 @@ st.markdown("<h3> First input the username of the Twitter accounts similar to th
 st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
+search_values = [['GretaThunberg', 'Greenpeace'], ['YC','a16z']]
+search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech']]
+
+random_topic = random.randrange(0, 2)
+
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
     text='Press enter to add more',
-    value=['GretaThunberg', 'Greenpeace'],
+    value=search_values[random_topic],
     suggestions=['BarackObama', 'EmmanuelMacron', "narendramodi","elonmusk","billgates","nytimes","POTUS","richardbranson","NASA","JoeBiden","AOC","Forbes","guardian","AP","latimes","TIME","NewYorker","politico","WSJ","nytimes","CNN","EmmaWatson","Disney","Harvard","FBI","Princeton","nybooks","Twitter"],
     maxtags = 4,
     key='1')
@@ -56,7 +61,7 @@ search = st_tags(
 text = st_tags(
     label='## Enter Topics or Keywords you want to focus on:',
     text='Press enter to add more',
-    value=['Climate', 'COP26','Environment'],
+    value=search_texts[random_topic],
     suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy',"cars","coffee","photography","aliens","money","comedy","fruits","vegetables","Europe","dogs","animals","artists","nature","boats","travel","tourism","football","soccer","newspapers","adventure","ngos","sports","currency","coin","military","beer","wine","cocktails","royalty","geography","history","singer","biotech","Africa","Asia","Oceania","Middle East","Maghreb","cooking","literature","poetry","fiction","dance","film","music","opera","theatre","architecture","drawing","painting","sculpture","culture","health","exercise","nutrition","fitness","antiquity","middle age","renaissance","mathematics","algebra","calculus","geometry","logic","statistics","biology","biochemistry","botany","ecology","zoology","astronomy","sciences","chemistry","earth sciences","physics","psychology","relationships","love","humanism","theology","religion","economics","linguistics","languages","american","indian","australian", "spanish","italian","french","german","swiss","swedish","austrian","canadian","pakistani","chinese","japanese","brazilian","political science","law","legal","sociology","anthropology","criminal justice","justice","crime","education","public affairs","business","vc","venture capital","finance","marketing","social media","management","influencer","artificial intelligence","machine learning","deep learning","data science","agriculture","aerospace","biotechnology","communication","neuroscience","quantum mechanics","energy","oil","industry","retail","library","books","machines","fashion","manufacturing","army","navy","permaculture","robotics","nuclear","sustainable development","space exploration","space","telecommunication","internet of things","iot","transport","vehicles","autonomous vehicles"],
     maxtags = 9,
     key='2')
