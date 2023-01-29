@@ -41,8 +41,8 @@ st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", u
 
 st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you to find the most relevant Twitter Accounts on a given topic</h2>", unsafe_allow_html=True)
 
-st.markdown("<h3> First input the username of the Twitter accounts similar to the ones you are looking for <em>(Example: If you are looking for climate activists enter GretaThunberg)</em>", unsafe_allow_html=True)
-st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
+#st.markdown("<h3> First input the username of the Twitter accounts similar to the ones you are looking for <em>(Example: If you are looking for climate activists enter GretaThunberg)</em>", unsafe_allow_html=True)
+#st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
 search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
@@ -68,7 +68,7 @@ text = st_tags(
 
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
 
-agree = st.checkbox('Display images and last tweets of top 10 accounts')
+agree = st.checkbox('Display images and last tweets of top 10 results')
 
 submit_button = st.button('Submit', key="search_submit")
 
