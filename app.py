@@ -259,7 +259,7 @@ if submit_button:
     for i in search_values[random_topic]:
         st.write(i)
         for list_name in api.lists_memberships(screen_name=i, count=10):
-            st.write(list_name["name"])
+            st.write(dir(list_name))
             suggested_texts.append(list_name["name"])
         #st.write(suggested_texts[0])
     suggestions = most_common(suggested_texts)[:4]
