@@ -45,10 +45,10 @@ st.markdown("<h3> First input the username of the Twitter accounts similar to th
 st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
-search_values = [['GretaThunberg', 'Greenpeace'], ['YC','a16z'], ['nytimes','CNN','BBCWorld']]
-search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news']]
+search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
+search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
 
-random_topic = random.randrange(0, 3)
+random_topic = random.randrange(0, 5)
 
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
