@@ -68,6 +68,8 @@ text = st_tags(
 
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
 
+agree = st.checkbox('Display images and last tweets of top 10 accounts')
+
 submit_button = st.button('Submit', key="search_submit")
 
 #streamlit_analytics.stop_tracking(unsafe_password=st.secrets["ANALYTICS_KEY"])
@@ -265,32 +267,34 @@ if submit_button:
     final_results = run(iterations)
     st.write(f"{len(final_results)} results found")
 
-    if len(final_results) >= 10:
-        st.title("Top 10 Results")
-        for k in range(0,10):
-            x = api.get_user(final_results["Accounts"][k])
-            st.title(x.name)
-            if len(x.profile_image_url) > 3:
-                st.image(x.profile_image_url, width=120)
-            st.write(x.screen_name)
-            if len(x.description) > 3:
-                st.write(x.description)
-            st.write(f"Last Tweet: {x.status.text}")
-            st.write(f"Followers Count: {x.followers_count}")
-            st.write(f"Following: {x.friends_count}")
-    else:
-        st.title(f"Top {len(final_results)} Results")
-        for k in range(0,len(final_results)):
-            x = api.get_user(final_results["Accounts"][k])
-            st.title(x.name)
-            if len(x.profile_image_url) > 3:
-                st.image(x.profile_image_url, width=120)
-            st.write(x.screen_name)
-            if len(x.description) > 3:
-                st.write(x.description)
-            st.write(f"Last Tweet: {x.status.text}")
-            st.write(f"Followers Count: {x.followers_count}")
-            st.write(f"Following: {x.friends_count}")
+    if agree:
+
+        if len(final_results) >= 10:
+            st.title("Top 10 Results")
+            for k in range(0,10):
+                x = api.get_user(final_results["Accounts"][k])
+                st.title(x.name)
+                if len(x.profile_image_url) > 3:
+                    st.image(x.profile_image_url, width=120)
+                st.write(x.screen_name)
+                if len(x.description) > 3:
+                    st.write(x.description)
+                st.write(f"Last Tweet: {x.status.text}")
+                st.write(f"Followers Count: {x.followers_count}")
+                st.write(f"Following: {x.friends_count}")
+        else:
+            st.title(f"Top {len(final_results)} Results")
+            for k in range(0,len(final_results)):
+                x = api.get_user(final_results["Accounts"][k])
+                st.title(x.name)
+                if len(x.profile_image_url) > 3:
+                    st.image(x.profile_image_url, width=120)
+                st.write(x.screen_name)
+                if len(x.description) > 3:
+                    st.write(x.description)
+                st.write(f"Last Tweet: {x.status.text}")
+                st.write(f"Followers Count: {x.followers_count}")
+                st.write(f"Following: {x.friends_count}")
 
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
