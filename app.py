@@ -12,6 +12,7 @@ import pandas as pd
 import random
 #import config
 import streamlit as st
+import streamlit_tags as st_tags
 #import streamlit_analytics
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
