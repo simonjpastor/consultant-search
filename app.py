@@ -261,6 +261,7 @@ if submit_button:
             list_id2 = j.full_name.split("/")[1]
             st.write(list_id2)
             list_name = api.get_list(list_id = list_id2).name
+            st.write(list_name)
             suggested_texts.append(list_name)
         #st.write(suggested_texts[0])
     #suggestions = most_common(suggested_texts)
