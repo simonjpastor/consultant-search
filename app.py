@@ -69,7 +69,7 @@ for i in search_values[random_topic]:
     suggested_texts.append(api.lists_memberships(i, count=10))
 
 print(suggested_texts)
-#search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
+search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
 
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
@@ -82,10 +82,12 @@ search = st_tags(
 text = st_tags(
     label='## Enter Topics or Keywords you want to focus on:',
     text='Press enter to add more',
-    value=most_common(suggested_texts)[:3],
+    value= search_texts[random_topic],
     suggestions=['finance', 'civic', 'gov', 'tech', 'crypto', 'politics', 'democracy', 'vegan', 'philosophy',"cars","coffee","photography","aliens","money","comedy","fruits","vegetables","Europe","dogs","animals","artists","nature","boats","travel","tourism","football","soccer","newspapers","adventure","ngos","sports","currency","coin","military","beer","wine","cocktails","royalty","geography","history","singer","biotech","Africa","Asia","Oceania","Middle East","Maghreb","cooking","literature","poetry","fiction","dance","film","music","opera","theatre","architecture","drawing","painting","sculpture","culture","health","exercise","nutrition","fitness","antiquity","middle age","renaissance","mathematics","algebra","calculus","geometry","logic","statistics","biology","biochemistry","botany","ecology","zoology","astronomy","sciences","chemistry","earth sciences","physics","psychology","relationships","love","humanism","theology","religion","economics","linguistics","languages","american","indian","australian", "spanish","italian","french","german","swiss","swedish","austrian","canadian","pakistani","chinese","japanese","brazilian","political science","law","legal","sociology","anthropology","criminal justice","justice","crime","education","public affairs","business","vc","venture capital","finance","marketing","social media","management","influencer","artificial intelligence","machine learning","deep learning","data science","agriculture","aerospace","biotechnology","communication","neuroscience","quantum mechanics","energy","oil","industry","retail","library","books","machines","fashion","manufacturing","army","navy","permaculture","robotics","nuclear","sustainable development","space exploration","space","telecommunication","internet of things","iot","transport","vehicles","autonomous vehicles"],
     maxtags = 9,
     key='2')
+
+print(most_common(suggested_texts)[:3])
 
 iterations = st.number_input(label='Number of Iterations (Default=2) The more iterations, the more accurate the results, yet the longer the computation time!',min_value=1,max_value=4,value=2,step=1)
 
