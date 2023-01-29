@@ -56,6 +56,9 @@ def set_api():
     api = API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
     return api
 
+def most_common(lst):
+        return max(set(lst), key=lst.count)
+
 api = set_api()
 
 random_topic = random.randrange(0, 5)
@@ -105,9 +108,6 @@ dict_with_people_list = []
 
 cool_people = {}
 cool_followers = {}
-
-def most_common(lst):
-        return max(set(lst), key=lst.count)
 
 def initial_function(dict_with_people):
     #Use this function at the very beginning and after each successful final_members() function
