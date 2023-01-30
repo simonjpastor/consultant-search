@@ -46,7 +46,7 @@ st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
 def set_api():
-    random_number = random.randrange(1, 11)
+    random_number = random.randrange(1, 3)
     consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
     consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
     access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
