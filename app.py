@@ -19,14 +19,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 from df2gspread import df2gspread as d2g
 from googleapiclient import discovery
 
-#st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
-#<script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>
-#<script>
-  #window.dataLayer = window.dataLayer || [];
-  #function gtag(){{dataLayer.push(arguments);}}
-  #gtag('js', new Date());
-  #gtag('config', '{st.secrets['TRACKING_ID']}');
-#</script></head>""", unsafe_allow_html=True)
+st.markdown(f"""<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={st.secrets['TRACKING_ID']}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{st.secrets['TRACKING_ID']}');
+</script></head>""", unsafe_allow_html=True)
 #import streamlit.components.v1 as components
 #from config.py import CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN_KEY, ACCESS_TOKEN_SCRET
 
@@ -46,7 +46,7 @@ st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you
 #st.write("As you can see here, we're looking for accounts similar to that of Greta Thunberg and the WWF. We're focusing on the climate and sustainability")
 
 def set_api():
-    random_number = random.randrange(1, 3)
+    random_number = random.randrange(1, 11)
     consumer_key=st.secrets[f"CONSUMER_KEY{random_number}"]
     consumer_secret=st.secrets[f"CONSUMER_SECRET{random_number}"]
     access_token_key=st.secrets[f"ACCESS_TOKEN_KEY{random_number}"]
@@ -258,9 +258,13 @@ def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df
 if submit_button:
     for i in search_values[random_topic]:
         for j in api.lists_memberships(screen_name=i, count=10):
-            list_name = api.get_list(list_id = j.full_name.split("/")[1]).name
-            #suggested_texts.append(list_name)
+            list_id2 = j.full_name.split("/")[1]
+            list_name = api.get_list(list_id = list_id2).name
             st.write(list_name)
+            suggested_texts.append(list_name)
+        #st.write(suggested_texts[0])
+    #suggestions = most_common(suggested_texts)
+    st.write("Better Topics: ", suggested_texts[0])
 
     looking_for_list = []
 
@@ -308,7 +312,17 @@ if submit_button:
 
         #st.markdown(f"""<h3 style='text-align: center'><img src={x.profile_image_url}></img>{x.name}<br>{x.screen_name}<br>{x.description}<br>Followers Count: {x.followers_count}<br>Subscribers: {x.friends_count}</h3>""",unsafe_allow_html=True)
 
+    #def make_clickable(link):
+        # target _blank to open new window
+        # extract clickable text to display for your link
+        #text = link.split('=')[1]
+        #return f'<a target="_blank" href="{link}">{text}</a>'
+
     st.title("All Results")
+    # link is the column with hyperlinks
+    #final_results['Links'] = final_results['Links'].apply(make_clickable)
+    #final_results = final_results.to_html(escape=False)
+    #st.write(final_results, unsafe_allow_html=True)
 
     st.write(final_results)
 
