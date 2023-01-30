@@ -259,11 +259,11 @@ if submit_button:
     for i in search_values[random_topic]:
         for j in api.lists_memberships(screen_name=i, count=10):
             list_id2 = j.full_name.split("/")[1]
-            list_name = api.get_list(list_id = list_id2).name
-            suggested_texts.append(list_name)
+            #list_name = api.get_list(list_id = list_id2).name
+            #suggested_texts.append(list_name)
 
-    if suggested_texts[0] not in search_texts[random_topic]:
-        st.write(f"Here's another keyword you could try:, {suggested_texts[0]}")
+    #if suggested_texts[0] not in search_texts[random_topic]:
+        #st.write(f"Here's another keyword you could try:, {suggested_texts[0]}")
     #suggestions = most_common(suggested_texts)
     #st.write("Better Topics: ", suggested_texts[0])
 
