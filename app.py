@@ -216,44 +216,44 @@ def end(results):
     return final_results
 
 
-# def google_sheets():
-#     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+def google_sheets():
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
-#     x = {"type": st.secrets['type'],
-#     "project_id": st.secrets['project_id'],
-#     "private_key_id": st.secrets['private_key_id'],
-#     "private_key": st.secrets['private_key'],
-#     "client_email": st.secrets['client_email'],
-#     "client_id": st.secrets['client_id'],
-#     "auth_uri": st.secrets['auth_uri'],
-#     "token_uri": st.secrets['token_uri'],
-#     "auth_provider_x509_cert_url": st.secrets['auth_provider_x509_cert_url'],
-#     "client_x509_cert_url": st.secrets['client_x509_cert_url']}
+    x = {"type": st.secrets['type'],
+    "project_id": st.secrets['project_id'],
+    "private_key_id": st.secrets['private_key_id'],
+    "private_key": st.secrets['private_key'],
+    "client_email": st.secrets['client_email'],
+    "client_id": st.secrets['client_id'],
+    "auth_uri": st.secrets['auth_uri'],
+    "token_uri": st.secrets['token_uri'],
+    "auth_provider_x509_cert_url": st.secrets['auth_provider_x509_cert_url'],
+    "client_x509_cert_url": st.secrets['client_x509_cert_url']}
 
-#     # add credentials to the account
-#     creds = ServiceAccountCredentials.from_json_keyfile_dict(x, scope)
+    # add credentials to the account
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(x, scope)
 
-#     # authorize the clientsheet
-#     client = gspread.authorize(creds)
+    # authorize the clientsheet
+    client = gspread.authorize(creds)
 
-#     spreadsheet_key = st.secrets["spreadsheet_key"]
-#     sheet = client.open_by_key(spreadsheet_key)
+    spreadsheet_key = st.secrets["spreadsheet_key"]
+    sheet = client.open_by_key(spreadsheet_key)
 
-#     wks_name = "Sheet1"
-#     next_free_line = len(sheet.values_get('A1:J1000')["values"]) + 1
-#     cell_of_start_df = f"A{next_free_line}"
+    wks_name = "Sheet1"
+    next_free_line = len(sheet.values_get('A1:J1000')["values"]) + 1
+    cell_of_start_df = f"A{next_free_line}"
 
-#     return spreadsheet_key, wks_name, creds, cell_of_start_df
+    return spreadsheet_key, wks_name, creds, cell_of_start_df
 
-# def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df):
-#     d2g.upload(final,
-#         spreadsheet_key,
-#         wks_name,
-#         credentials=creds,
-#         col_names=False,
-#         row_names=False,
-#         start_cell = cell_of_start_df,
-#         clean=False)
+def update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df):
+    d2g.upload(final,
+        spreadsheet_key,
+        wks_name,
+        credentials=creds,
+        col_names=False,
+        row_names=False,
+        start_cell = cell_of_start_df,
+        clean=False)
 
 if submit_button:
     for i in search_values[random_topic]:
@@ -275,9 +275,9 @@ if submit_button:
     for j in search:
         cool_people[j] = 1
 
-    # spreadsheet_key, wks_name, creds, cell_of_start_df = google_sheets()
-    # final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":""}, index=[0])
-    # update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
+    spreadsheet_key, wks_name, creds, cell_of_start_df = google_sheets()
+    final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":""}, index=[0])
+    update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
     final_results = run(iterations)
     st.write(f"{len(final_results)} results found")
@@ -327,7 +327,7 @@ if submit_button:
 
     st.write(final_results)
 
-    # final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
-    # update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
+    final = pd.DataFrame({"Date & Time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),f"Twitter Accounts":' '.join(search), "Key terms":' '.join(text), "Results":' '.join(list(final_results["Accounts"]))}, index=[0])
+    update_google_sheets(final,spreadsheet_key,wks_name, creds, cell_of_start_df)
 
     # #st.download_button(label="Download data as CSV",data=final_results,file_name=f'{looking_for_list[0]}_results.csv')
