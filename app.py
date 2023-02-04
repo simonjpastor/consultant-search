@@ -35,7 +35,7 @@ from googleapiclient import discovery
 
 APP_NAME = "TwittLists"
 icon = [":fr:",":champagne:",":crown:","old_key",":computer:",":desktop_computer:",":robot_face:"]
-st.set_page_config(page_icon=f"{icon[random.randrange(0,7)]}")
+st.set_page_config(page_title="TwittLists", page_icon=f"{icon[random.randrange(0,7)]}")
 
 primaryColor = '#1DA1F2'
 
