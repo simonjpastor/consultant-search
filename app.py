@@ -34,6 +34,8 @@ from googleapiclient import discovery
 #streamlit_analytics.track(save_to_json="/Users/simonpastor/Documents/Github/twittlist/file.json")
 
 APP_NAME = "TwittLists"
+icon = [":fr:",":champagne:",":crown:","old_key",":computer:",":desktop_computer:",":robot_face:"]
+
 
 primaryColor = '#1DA1F2'
 
