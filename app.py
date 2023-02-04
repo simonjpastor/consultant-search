@@ -61,11 +61,11 @@ def most_common(lst):
 
 api = set_api()
 
-random_topic = random.randrange(0, 5)
+random_topic = random.randrange(0, 9)
 suggested_texts = []
 
-search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa']]
-search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars']]
+search_values = [['GretaThunberg', 'Greenpeace'], ['ycombinator','a16z'], ['nytimes','CNN','BBCWorld'], ['POTUS','EmmanuelMacron','narendramodi'],['NASA','SpaceX','esa'],['KingJames','KDTrey5','JHarden13'], ['Cristiano','neymarjr','KMbappe'],['KimKardashian','KylieJenner'],['rihanna','Drake','taylorswift13']]
+search_texts = [['Climate', 'COP26','Environment'], ['vc', 'startup','tech'], ['news'],['leaders','presidents'],['space','astronomy','mars'], ['nba','sports','bastketball'],['soccer', 'football','sports'],['celeb','famous'],['music','hip hop','culture']]
 
 search = st_tags(
     label='## Enter the Username of Twitter Accounts similar to the ones you are looking for:',
