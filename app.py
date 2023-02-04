@@ -33,10 +33,9 @@ from googleapiclient import discovery
 #streamlit_analytics.start_tracking()
 #streamlit_analytics.track(save_to_json="/Users/simonpastor/Documents/Github/twittlist/file.json")
 
-APP_NAME = "TwittList"
+#APP_NAME = "TwittList"
 icon = [":fr:",":champagne:",":crown:","old_key",":computer:",":desktop_computer:",":robot_face:"]
-st.set_page_config(page_title="TwittList", page_icon=f"{icon[random.randrange(0,7)]}")
-
+st.set_page_config(page_title=TwittList, page_icon=f"{icon[random.randrange(0,7)]}", layout="centered")
 primaryColor = '#1DA1F2'
 
 st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittList</h1>", unsafe_allow_html=True)
