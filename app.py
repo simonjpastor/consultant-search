@@ -33,15 +33,15 @@ from googleapiclient import discovery
 #streamlit_analytics.start_tracking()
 #streamlit_analytics.track(save_to_json="/Users/simonpastor/Documents/Github/twittlist/file.json")
 
-APP_NAME = "TwittLists"
+APP_NAME = "TwittList"
 icon = [":fr:",":champagne:",":crown:","old_key",":computer:",":desktop_computer:",":robot_face:"]
-st.set_page_config(page_title="TwittLists", page_icon=f"{icon[random.randrange(0,7)]}")
+st.set_page_config(page_title="TwittList", page_icon=f"{icon[random.randrange(0,7)]}")
 
 primaryColor = '#1DA1F2'
 
-st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittLists</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittList</h1>", unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center; color: black;'>TwittLists allows you to find the most relevant Twitter Accounts on a given topic</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>TwittList allows you to find the most relevant Twitter Accounts on a given topic</h2>", unsafe_allow_html=True)
 
 #st.markdown("<h3> First input the username of the Twitter accounts similar to the ones you are looking for <em>(Example: If you are looking for climate activists enter GretaThunberg)</em>", unsafe_allow_html=True)
 #st.markdown("<h3> Then enter the topics or keywords you want to focus on <em>(Example: climate)</em></h3>", unsafe_allow_html=True)
