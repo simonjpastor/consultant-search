@@ -35,7 +35,7 @@ from googleapiclient import discovery
 
 #APP_NAME = "TwittList"
 #icon = [":fr:",":champagne:",":crown:","old_key",":computer:",":desktop_computer:",":robot_face:"]
-st.set_page_config(page_title="TwittList", page_icon="🚀", layout="centered")
+st.set_page_config(page_title="TwittList", layout="centered")
 primaryColor = '#1DA1F2'
 
 st.markdown("<h1 style='text-align: center; color: #1DA1F2;'>TwittList</h1>", unsafe_allow_html=True)
